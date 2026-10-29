@@ -1,4 +1,4 @@
-/* change colors, font, speed and easing here. Layout rules follow below. */
+/* KOPP: change colors, font, speed and easing here. Layout rules follow below. */
 :root{--navy:#15183A;--cream:#F4EFE6;--paper:#FBF8F2;--terra:#C8553D;--soft:#4A4D6A;
 --font:'Plus Jakarta Sans',system-ui,sans-serif;--ease:cubic-bezier(.2,.7,.2,1);--dur:.6s;--pad:clamp(20px,4vw,48px)}
 *{box-sizing:border-box;margin:0}
@@ -49,7 +49,7 @@ small{display:block;color:var(--soft);font-size:13px}
 .add:disabled{border-style:dashed;cursor:default}
 .card .ask{align-self:center;margin-top:12px;font-size:14px;text-decoration:underline;text-underline-offset:4px}
 
-/* Motion */
+/* Motion: one fade-and-rise, staggered by --i */
 .js [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);transition-delay:calc(var(--i,0)*80ms)}
 .js [data-reveal].in{opacity:1;transform:none}
 
@@ -116,25 +116,34 @@ small{display:block;color:var(--soft);font-size:13px}
 .policy .note{border-left:3px solid var(--navy);padding:14px 18px;background:var(--paper);margin:28px 0}
 .policy a{font-weight:700}
 
-/* Mobile-only changes yahan say full */
+/* Mobile-only changes. Anything inside this block only applies on narrow screens. */
 @media (max-width: 860px) {
-  
+  /* Centre the Home / Shop / About links under the logo */
   .hd nav{justify-content:center}
 
-  
+  /* Footer text, links and logos about 2px smaller on phones */
   .ft{font-size:13px}
   .ft a{font-size:14px}
   .ft small{font-size:11px}
   .ft img{height:30px}
 }
 
-
+/* Filter panel: hidden toggle on laptops, filters always shown */
 .ftog{display:none}
 .fbody{display:flex;flex-direction:column;align-items:flex-end;gap:4px;width:100%}
 
-
+/* Mobile only: filters and search sit behind one "Filter & search" button */
 @media (max-width:860px){
 .flt .ftog{display:block;width:100%;padding:12px 14px;border:1px solid var(--navy);font-weight:700;text-align:center}
 .flt .fbody{display:none;flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 18px;text-align:left}
 .flt.open .fbody{display:flex}
+}
+
+/* Mobile only: sticky bag bar at the bottom of the screen */
+.bagbar{display:none}
+@media (max-width:860px){
+.bagbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:25;align-items:center;gap:12px;width:100%;padding:14px var(--pad) calc(14px + env(safe-area-inset-bottom,0px));background:var(--navy);color:var(--cream);font-size:15px;font-weight:700;text-align:left}
+.bagbar[hidden]{display:none}
+.bagbar b{margin-left:auto;font-weight:700}
+body.has-bar{padding-bottom:76px}
 }
