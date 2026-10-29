@@ -8,7 +8,7 @@ window.KOPP = {
   currency: "Rs",
   shipping: "Pre-Loved. Curated. Restored.",
   products: [  
-    {ref:"001", name:"Onistsuka Tiger Corsiar Whtite Green ",    cat:"Sneakers",   size:45, grade:"A+", price:5999, color:"#8A5A3C", img:"img02.jpeg"},
+    {ref:"001", name:"Onitsuka Tiger Corsiar Whtite Green ",    cat:"Sneakers",   size:45, grade:"A+", price:5999, color:"#8A5A3C", img:"img02.jpeg"},
     {ref:"002", name:"Nike Iniator Running",   cat:"Running",    size:42, grade:"A",  price:4499, color:"#3A2A24", img:"img01.jpeg"},
     {ref:"003", name:"Adidas Ultraboost 21",   cat:"Running",  size:43.5, grade:"A",  price:4999, color:"#D9D3C4", img:"img04.jpeg"},
     {ref:"004", name:"Adidas Busenitz Pro 'Halo Silver Gum",    cat:"Sneakers",     size:43.5, grade:"A",  price:4999, color:"#5B3A29", img:"img03.jpeg"},
