@@ -3,8 +3,8 @@
    Photos: put files in /img and set img:"img/001.jpg" (blank = placeholder shoe).
    `ref` is the internal team tag; it only appears in the WhatsApp order text. */
 window.KOPP = {
-  whatsapp: "923359189183",          // your number, country code first, no + or spaces
-  instagram: "https://www.instagram.com/koppthese",                      // handle without @, blank hides the link
+  whatsapp: "923359189183",         
+  instagram: "https://www.instagram.com/koppthese",                      
   currency: "Rs",
   shipping: "Pre-Loved. Curated. Restored.",
   products: [  
