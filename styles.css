@@ -1,0 +1,140 @@
+/* KOPP: change colors, font, speed and easing here. Layout rules follow below. */
+:root{--navy:#15183A;--cream:#F4EFE6;--paper:#FBF8F2;--terra:#C8553D;--soft:#4A4D6A;
+--font:'Plus Jakarta Sans',system-ui,sans-serif;--ease:cubic-bezier(.2,.7,.2,1);--dur:.6s;--pad:clamp(20px,4vw,48px)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:400 15px/1.5 var(--font);color:var(--navy);background:var(--cream);border-top:3px solid var(--navy);animation:pageIn .6s var(--ease)}
+body.leaving{opacity:0;transition:opacity .25s}
+@keyframes pageIn{from{opacity:0;transform:translateY(8px)}}
+a{color:inherit}
+button,input,textarea{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+small{display:block;color:var(--soft);font-size:13px}
+:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
+
+/* Header */
+.hd{position:sticky;top:0;z-index:20;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:78px;padding:0 var(--pad);background:var(--cream);border-bottom:1px solid var(--navy)}
+.logo img{height:24px;display:block}
+.hd nav{display:flex;gap:28px}
+.hd a,.hd button{text-decoration:none;position:relative}
+.hd nav a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.hd nav a:hover::after,.hd nav a[aria-current]::after{transform:scaleX(1)}
+.hd .r{justify-self:end;display:flex;gap:24px}
+
+/* Intro */
+.intro{padding:72px var(--pad) 8px}
+.intro h1{font-weight:800;font-size:clamp(40px,7vw,96px);line-height:1;letter-spacing:-.035em;max-width:14ch}
+.intro p{margin-top:20px;color:var(--soft);max-width:46ch;font-size:17px}
+
+/* Shop: filters left, bordered grid right */
+.shop{display:grid;grid-template-columns:220px 1fr;gap:28px;padding:48px var(--pad) 96px}
+.flt{position:sticky;top:100px;align-self:start;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.flt h4{font-size:13px;font-weight:500;color:var(--soft);margin:24px 0 4px}
+.flt button{padding:2px 0;text-align:right}
+.flt button:hover{text-decoration:underline;text-underline-offset:4px}
+.flt button[aria-pressed=true]{text-decoration:underline;text-underline-offset:4px;font-weight:700}
+.flt input{width:100%;padding:10px 12px;border:1px solid var(--navy);background:transparent;text-align:left}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));border-top:1px solid var(--navy);border-left:1px solid var(--navy);align-self:start}
+.none{padding:32px;grid-column:1/-1;border-right:1px solid var(--navy);border-bottom:1px solid var(--navy)}
+.card{display:flex;flex-direction:column;min-height:540px;padding:20px 24px 24px;border-right:1px solid var(--navy);border-bottom:1px solid var(--navy);transition:background .4s var(--ease)}
+.meta{display:grid;grid-template-columns:76px 1fr auto;gap:12px}
+.meta h3{font-size:15px;font-weight:500}
+.pic{flex:1;display:flex;align-items:flex-end;justify-content:center;padding-top:40px}
+.pic svg,.pic img{width:100%;max-width:240px;transition:transform var(--dur) var(--ease)}
+.pic img{object-fit:contain}
+.card:hover .pic>*{transform:translateY(-8px) rotate(-2deg)}
+.card.sold .pic{opacity:.4}
+.add{margin-top:20px;padding:12px;border:1px solid var(--navy);font-weight:700;transition:background .3s,color .3s}
+.add:hover:not(:disabled){background:var(--navy);color:var(--cream)}
+.add:disabled{border-style:dashed;cursor:default}
+.card .ask{align-self:center;margin-top:12px;font-size:14px;text-decoration:underline;text-underline-offset:4px}
+
+/* Motion: one fade-and-rise, staggered by --i */
+.js [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);transition-delay:calc(var(--i,0)*80ms)}
+.js [data-reveal].in{opacity:1;transform:none}
+
+/* Bag drawer */
+.veil{position:fixed;inset:0;z-index:30;background:rgba(21,24,58,.45);opacity:0;pointer-events:none;transition:opacity .4s}
+.veil.open{opacity:1;pointer-events:auto}
+.bag{position:fixed;inset:0 0 0 auto;z-index:40;width:min(420px,100%);display:flex;flex-direction:column;gap:12px;padding:24px;background:var(--cream);border-left:1px solid var(--navy);transform:translateX(100%);visibility:hidden;transition:transform .5s var(--ease),visibility .5s}
+.bag.open{transform:none;visibility:visible}
+.bag .top{display:flex;justify-content:space-between}
+.bag ul{list-style:none;padding:0;flex:1;overflow:auto}
+.bag li{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--navy)}
+.bag li span:last-child{text-align:right}
+.bag li button{text-decoration:underline}
+.bag input,.bag textarea{width:100%;padding:12px;border:1px solid var(--navy);background:transparent}
+.btn{width:100%;padding:16px;background:var(--navy);color:var(--cream);font-weight:700;transition:transform .3s var(--ease)}
+.btn:hover:not(:disabled){transform:translateY(-2px)}
+.btn:disabled{opacity:.5;cursor:default}
+
+/* About */
+.story{max-width:62ch;margin:48px var(--pad) 0;font-size:19px;line-height:1.6}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin:56px var(--pad) 96px;border-top:1px solid var(--navy);border-left:1px solid var(--navy)}
+.cols div{padding:28px;border-right:1px solid var(--navy);border-bottom:1px solid var(--navy)}
+.cols h3{font-size:20px;font-weight:800;margin-bottom:8px}
+
+/* Footer */
+.ft{display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;padding:64px var(--pad) 48px;background:var(--navy);color:var(--cream)}
+.ft img{height:32px;display:block}
+.ft small{color:var(--cream);margin-top:14px}
+.ft a{display:block;margin-bottom:6px;text-decoration:none}
+.ft a:hover{text-decoration:underline}
+
+@media(max-width:860px){
+.hd{height:auto;grid-template-columns:1fr auto;row-gap:12px;padding:14px var(--pad)}
+.hd nav{grid-column:1/-1;order:3;gap:20px}
+.shop{grid-template-columns:1fr}
+.flt{position:static;text-align:left;flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 18px}
+.flt h4{width:100%;margin:12px 0 0}.flt input{max-width:none}
+.card{min-height:460px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js [data-reveal]{opacity:1;transform:none}}
+
+/* Rotating headline: Pre-loved. / Curated. / Restored.
+   Change --step to speed it up or slow it down (seconds each word stays on screen). */
+.intro{--step:3s;--cycle:calc(var(--step) * 3)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.rotator{display:inline-grid;vertical-align:bottom}
+.rotator .w{grid-area:1/1;opacity:0;transform:translateY(40%);animation:swap var(--cycle) infinite var(--ease)}
+.rotator .w:nth-child(1){animation-delay:0s}
+.rotator .w:nth-child(2){animation-delay:var(--step)}
+.rotator .w:nth-child(3){animation-delay:calc(var(--step) * 2)}
+@keyframes swap{
+0%{opacity:0;transform:translateY(40%)}
+5%{opacity:1;transform:none}
+28%{opacity:1;transform:none}
+33%{opacity:0;transform:translateY(-40%)}
+100%{opacity:0;transform:translateY(-40%)}}
+@media(prefers-reduced-motion:reduce){.rotator .w{animation:none;opacity:0}.rotator .w:first-child{opacity:1;transform:none}}
+
+/* Policy pages: returns, shipping, privacy */
+.policy{max-width:70ch;margin:40px var(--pad) 96px;font-size:16px;line-height:1.7}
+.policy h2{font-size:22px;font-weight:800;margin:40px 0 12px;letter-spacing:-.01em}
+.policy p{margin-bottom:12px}
+.policy ul{padding-left:20px;margin:8px 0 16px}
+.policy li{margin-bottom:8px}
+.policy .note{border-left:3px solid var(--navy);padding:14px 18px;background:var(--paper);margin:28px 0}
+.policy a{font-weight:700}
+
+/* Mobile-only changes. Anything inside this block only applies on narrow screens. */
+@media (max-width: 860px) {
+  /* Centre the Home / Shop / About links under the logo */
+  .hd nav{justify-content:center}
+
+  /* Footer text, links and logos about 2px smaller on phones */
+  .ft{font-size:13px}
+  .ft a{font-size:14px}
+  .ft small{font-size:11px}
+  .ft img{height:30px}
+}
+
+/* Filter panel: hidden toggle on laptops, filters always shown */
+.ftog{display:none}
+.fbody{display:flex;flex-direction:column;align-items:flex-end;gap:4px;width:100%}
+
+/* Mobile only: filters and search sit behind one "Filter & search" button */
+@media (max-width:860px){
+.flt .ftog{display:block;width:100%;padding:12px 14px;border:1px solid var(--navy);font-weight:700;text-align:center}
+.flt .fbody{display:none;flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 18px;text-align:left}
+.flt.open .fbody{display:flex}
+}

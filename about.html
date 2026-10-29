@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>document.documentElement.className="js"</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<link rel="icon" href="favicon.ico" sizes="64x64">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="profile-card.css">
+<title>About Kopp.</title><meta name="description" content="Kopp sells curated pre-loved shoes across Pakistan.">
+</head><body data-page="about"><header class="hd" id="hd"></header>
+<main><section class="intro"><h1 data-reveal>Why Kopp?</h1></section>
+<!-- EDIT the copy below to match how Kopp really works -->
+<p class="story" data-reveal style="--i:1">Kopp finds good shoes that still have years left in them, cleans them up, and sends them to you anywhere in Pakistan. Every pair is one of one. When it is gone, it is gone.</p>
+<section class="cols">
+<div data-reveal><h3>How we grade</h3><p>A+ is close to new. A shows light wear. B shows visible wear, and we photograph every flaw so there are no surprises.</p></div>
+<div data-reveal style="--i:1"><h3>How we prepare</h3><p>Each pair is sterilized thoroughly before it is photographed, so what you see is what arrives.</p></div>
+<div data-reveal style="--i:2"><h3>How to order</h3><p>Add pairs to your bag and send the order on WhatsApp. We confirm payment and delivery with you there.</p></div>
+</section>
+<section class="team" id="team"></section></main>
+<footer class="ft" id="ft"></footer><script src="products.js"></script><script src="app.js"></script>
+<script src="profile-card.js"></script>
+<script>
+/* TEAM CARDS: change name, title, handle, contactUrl and avatarUrl for each card here.
+   contactUrl = the person's LinkedIn or Instagram link, e.g. "https://www.linkedin.com/in/name"
+   avatarUrl  = photo path, e.g. "img/team-1.jpg". Leave "" to show the card without a photo. */
+const TEAM = [
+  { name: "Abdul Mohaimin Ali", title: "Kopp", handle: "abdulmohaiminali", contactUrl: "", avatarUrl: "" },
+  { name: "Umer H Wyne", title: "Kopp", handle: "umerhwyne", contactUrl: "https://www.linkedin.com/in/umer-h-wyne-77b67b281/", avatarUrl: "" },
+  { name: "Muhmmad Shahmeer Ali", title: "Kopp", handle: "Shahmeeerr", contactUrl: "https://www.instagram.com/shahmeeerr?srtk=YnQ3NDhxZ3ZoMXlj", avatarUrl: "" }
+];
+TEAM.forEach(m => ProfileCard.mount(document.getElementById("team"), {
+  ...m, status: "Online", contactText: "Contact", iconUrl: "",
+  holo: 0.85, glare: 0.7, tiltStrength: 13, parallax: 8, radius: 16,
+  enableTilt: true, intro: true, enableMobileTilt: true
+}));
+</script></body></html>
