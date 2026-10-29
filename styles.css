@@ -147,3 +147,7 @@ small{display:block;color:var(--soft);font-size:13px}
 .bagbar b{margin-left:auto;font-weight:700}
 body.has-bar{padding-bottom:76px}
 }
+
+@media (max-width: 860px) {
+  .intro h1 { font-size: clamp(44px, 12vw, 56px); }
+}
