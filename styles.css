@@ -151,3 +151,7 @@ body.has-bar{padding-bottom:76px}
 @media (max-width: 860px) {
   .intro h1 { font-size: clamp(44px, 12vw, 56px); }
 }
+
+@media (max-width: 860px) {
+  .hd { row-gap: 20px; }
+}
