@@ -1,11 +1,10 @@
-/* KOPP storefront logic. Settings and products live in products.js. */
 const K = window.KOPP, $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const money = n => `${K.currency} ${n.toLocaleString("en-PK")}`;
 const page = document.body.dataset.page;
 let bag = []; try { bag = JSON.parse(localStorage.getItem("kopp-bag")) || []; } catch {}
 const save = () => { try { localStorage.setItem("kopp-bag", JSON.stringify(bag)); } catch {} };
 
-/* ---------- Shared header, footer and bag (edit once, shows on every page) ---------- */
+/* Shared header, footer and bag (edit once, shows on every page) */
 const live = K.products.filter(p => !p.sold).length;
 const nav = [["index.html", "Home", "home"], ["index.html#shop", `Shop ${live} Pairs`, ""], ["about.html", "About", "about"]];
 $("#hd").innerHTML = `<a class="logo" href="index.html" aria-label="Kopp home"><img src="img/logo.png" alt="Kopp."></a>
@@ -20,7 +19,7 @@ document.body.insertAdjacentHTML("beforeend", `<div class="veil" id="veil"></div
 <textarea id="ad" rows="3" placeholder="Delivery address and city" aria-label="Delivery address"></textarea>
 <div id="slide"></div><small>We confirm payment and delivery with you on WhatsApp.</small></aside>`);
 
-/* ---------- Bag ---------- */
+/*  Bag */
 const items = () => bag.map(r => K.products.find(p => p.ref === r)).filter(p => p && !p.sold);
 const total = () => items().reduce((s, p) => s + p.price, 0);
 const openBag = o => { $("#bag").classList.toggle("open", o); $("#veil").classList.toggle("open", o); };
@@ -37,7 +36,7 @@ document.addEventListener("click", e => {
   else if (t.closest("#open-bag")) openBag(true);
   else if (t.closest("#close-bag, #veil")) openBag(false);
 });
-/* ---------- Order on WhatsApp: the slide button in the bag ---------- */
+/*  Order on WhatsApp: the slide button in the bag  */
 const orderOnWhatsApp = () => {
   const nm = $("#nm"), ad = $("#ad");
   if (!nm.value.trim()) { nm.focus(); throw new Error("Add your name"); }
@@ -64,15 +63,13 @@ let slider = null;
   document.body.appendChild(js);
 })();
 
-/* ---------- Motion: tweak speed and easing in styles.css (:root). Add data-reveal to any element to fade it in. ---------- */
 const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && (e.target.classList.add("in"), io.unobserve(e.target))), { threshold: .1 });
 const reveal = () => $$("[data-reveal]:not(.in)").forEach(el => io.observe(el));
-/* "/" and "/index.html" are the same page, so links to the current page scroll instead of reloading it */
 const plain = p => p.replace(/index\.html$/, "") || "/";
-document.addEventListener("click", e => {   // soft fade between pages
+document.addEventListener("click", e => {   
   const a = e.target.closest("a[href]");
   if (!a || a.target || a.origin !== location.origin || e.metaKey || e.ctrlKey) return;
-  if (plain(a.pathname) === plain(location.pathname)) {   // same page: scroll, don't reload
+  if (plain(a.pathname) === plain(location.pathname)) {   
     e.preventDefault();
     const target = a.hash && document.querySelector(a.hash);
     if (target) target.scrollIntoView({ behavior: "smooth" });
@@ -84,7 +81,7 @@ document.addEventListener("click", e => {   // soft fade between pages
 });
 addEventListener("pageshow", () => document.body.classList.remove("leaving"));
 
-/* ---------- Shop grid, filters and search (home page only) ---------- */
+/*  Shop grid, filters and filter waghera */
 if ($("#grid")) {
   const P = K.products, S = { sort: "new", size: "", grade: "", avail: "", q: "" };
   const shoe = c => `<svg viewBox="0 0 200 100" role="img" aria-label="Photo coming soon"><path d="M14 72C14 54 18 42 28 40L52 34C60 41 70 43 80 39L96 31C112 30 128 38 146 47C166 53 188 57 190 69V74H14Z" fill="${c}"/><path d="M10 74H192V82Q192 90 184 90H18Q10 90 10 82Z" fill="#E7DFCF"/><path d="M62 46l8 8M76 42l8 8M90 38l8 8" stroke="#F4EFE6" stroke-width="2.4" stroke-linecap="round"/></svg>`;
