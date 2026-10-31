@@ -156,7 +156,5 @@ body.has-bar{padding-bottom:76px}
   .hd { row-gap: 20px; }
 }
 
-/* Share link under each pair, sitting beside Ask for original pictures */
-.cardlinks{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 18px;margin-top:12px}
-.cardlinks .ask{align-self:auto;margin-top:0}
-.share{font-size:14px;font-weight:500;text-decoration:underline;text-underline-offset:4px}
+/* Share link under the grade, at the top of each card */
+.share{display:block;margin-top:6px;font-size:13px;font-weight:500;text-align:left;text-decoration:underline;text-underline-offset:4px}
