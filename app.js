@@ -68,6 +68,17 @@ let slider = null;
   document.body.appendChild(js);
 })();
 
+/* ---------- Share a pair on WhatsApp ---------- */
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-share]");
+  if (!b) return;
+  const p = K.products.find(x => x.ref === b.dataset.share);
+  if (!p) return;
+  const link = new URL(`index.html?pair=${p.ref}#shop`, location.href).href;
+  const msg = `Take a look at this pair from Kopp.:\n${p.name}, size ${p.size}, ${money(p.price)}\n${link}`;
+  window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, "_blank");
+});
+
 /* ---------- Motion: tweak speed and easing in styles.css (:root). Add data-reveal to any element to fade it in. ---------- */
 const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && (e.target.classList.add("in"), io.unobserve(e.target))), { threshold: .1 });
 const reveal = () => $$("[data-reveal]:not(.in)").forEach(el => io.observe(el));
@@ -97,7 +108,7 @@ if ($("#grid")) {
 <div class="meta"><span>Grade ${p.grade}</span><h3>${p.name}<small>Size ${p.size}, ${p.cat}</small></h3><span>${money(p.price)}</span></div>
 <div class="pic">${p.img ? `<img src="${p.img}" alt="${p.name}" loading="lazy">` : shoe(p.color)}</div>
 ${p.sold ? '<button class="add" disabled>Sold.</button>' : `<button class="add" data-ref="${p.ref}">Add to bag</button>`}
-<a class="ask" href="${askLink(p)}" target="_blank" rel="noopener">Ask for original pictures</a></article>`;
+<div class="cardlinks"><a class="ask" href="${askLink(p)}" target="_blank" rel="noopener">Ask for original pictures</a>${p.sold ? "" : `<button class="share" data-share="${p.ref}">Share</button>`}</div></article>`;
 const uniq = k => [...new Set(P.map(p => p[k]))].sort();
   const group = (title, key, opts) => `<h4>${title}</h4>${opts.map(([v, l]) => `<button data-k="${key}" data-v="${v}">${l}</button>`).join("")}`;
   $("#flt").innerHTML = `<button class="ftog" aria-expanded="false">Filter &amp; search</button><div class="fbody"><input id="q" type="search" placeholder="Search" aria-label="Search pairs">`
@@ -120,5 +131,8 @@ const uniq = k => [...new Set(P.map(p => p[k]))].sort();
   $("#q").oninput = e => { S.q = e.target.value.toLowerCase(); draw(); };
   $("#srch").onclick = e => { e.preventDefault(); $("#flt").classList.add("open"); $("#q").focus(); $("#q").scrollIntoView({ block: "center" }); };
   draw(); if (location.search.includes("q")) { $("#flt").classList.add("open"); $("#q").focus(); }
+  const pairRef = new URLSearchParams(location.search).get("pair");
+  const pairCard = pairRef && $(`.add[data-ref="${pairRef}"]`);
+  if (pairCard) pairCard.closest(".card").scrollIntoView({ block: "center" });
 }
 drawBag(); reveal();
