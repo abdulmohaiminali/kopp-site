@@ -105,10 +105,10 @@ if ($("#grid")) {
   const shoe = c => `<svg viewBox="0 0 200 100" role="img" aria-label="Photo coming soon"><path d="M14 72C14 54 18 42 28 40L52 34C60 41 70 43 80 39L96 31C112 30 128 38 146 47C166 53 188 57 190 69V74H14Z" fill="${c}"/><path d="M10 74H192V82Q192 90 184 90H18Q10 90 10 82Z" fill="#E7DFCF"/><path d="M62 46l8 8M76 42l8 8M90 38l8 8" stroke="#F4EFE6" stroke-width="2.4" stroke-linecap="round"/></svg>`;
   const askLink = p => `https://wa.me/${K.whatsapp}?text=${encodeURIComponent(`Send the original pictures of:\n${p.name}, size ${p.size}, Ref ${p.ref}`)}`;
   const card = (p, i) => `<article class="card${p.sold ? " sold" : ""}" data-reveal style="--i:${i % 4}">
-<div class="meta"><span>Grade ${p.grade}</span><h3>${p.name}<small>Size ${p.size}, ${p.cat}</small></h3><span>${money(p.price)}</span></div>
+<div class="meta"><span>Grade ${p.grade}${p.sold ? "" : `<button class="share" data-share="${p.ref}">Share</button>`}</span><h3>${p.name}<small>Size ${p.size}, ${p.cat}</small></h3><span>${money(p.price)}</span></div>
 <div class="pic">${p.img ? `<img src="${p.img}" alt="${p.name}" loading="lazy">` : shoe(p.color)}</div>
 ${p.sold ? '<button class="add" disabled>Sold.</button>' : `<button class="add" data-ref="${p.ref}">Add to bag</button>`}
-<div class="cardlinks"><a class="ask" href="${askLink(p)}" target="_blank" rel="noopener">Ask for original pictures</a>${p.sold ? "" : `<button class="share" data-share="${p.ref}">Share</button>`}</div></article>`;
+<a class="ask" href="${askLink(p)}" target="_blank" rel="noopener">Ask for original pictures</a></article>`;
 const uniq = k => [...new Set(P.map(p => p[k]))].sort();
   const group = (title, key, opts) => `<h4>${title}</h4>${opts.map(([v, l]) => `<button data-k="${key}" data-v="${v}">${l}</button>`).join("")}`;
   $("#flt").innerHTML = `<button class="ftog" aria-expanded="false">Filter &amp; search</button><div class="fbody"><input id="q" type="search" placeholder="Search" aria-label="Search pairs">`
