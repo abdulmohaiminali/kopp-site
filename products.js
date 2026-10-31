@@ -14,6 +14,12 @@ window.KOPP = {
     {ref:"004", name:"Adidas Busenitz Pro 'Halo Silver Gum",    cat:"Sneakers",     size:43.5, grade:"A",  price:4999, color:"#5B3A29", img:"img03.jpeg"},
     {ref:"005", name:"Asics Gel 1090 Piedmont Grey ",  cat:"Jogger",  size:43.5, grade:"B",  price:3900, color:"#2F3A63", img:"img05.jpeg"},
     {ref:"006", name:"New Balance 574 Legacy ",    cat:"Sneakers",   size:42.5, grade:"A+", price:5499, color:"#6B2E2A", img:"img06.jpeg"},
-    {ref:"008", name:"On Cloud 5",          cat:"Jogger",  size:45, grade:"A+",  price:5999, color:"#7F8796", img:"img07.jpeg", sold:true}
+    {ref:"008", name:"On Cloud 5",          cat:"Jogger",  size:45, grade:"A+",  price:5999, color:"#7F8796", img:"img07.jpeg", sold:true},
+    {ref:"009", name:"Shoe name here", cat:"Sneakers", size:42, grade:"A", price:4999, color:"#8A5A3C", img:"img010.png"},
+    {ref:"010", name:"Shoe name here", cat:"Sneakers", size:42, grade:"A", price:4999, color:"#8A5A3C", img:"img011.jpeg"},
+    {ref:"011", name:"Shoe name here", cat:"Sneakers", size:42, grade:"A", price:4999, color:"#8A5A3C", img:"img012.jpeg"},
+    {ref:"012", name:"Shoe name here", cat:"Sneakers", size:42, grade:"A", price:4999, color:"#8A5A3C", img:"img013.jpeg"},
+    {ref:"013", name:"Shoe name here", cat:"Sneakers", size:42, grade:"A", price:4999, color:"#8A5A3C", img:"img014.jpeg"}, 
+    {ref:"014", name:"Shoe name here", cat:"Sneakers", size:42, grade:"A", price:4999, color:"#8A5A3C", img:"img015.jpeg"}
   ]
 };
