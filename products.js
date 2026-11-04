@@ -19,7 +19,7 @@ window.KOPP = {
     {ref:"010", name:"Air Jordan True Flight GG", cat:"Sneakers", size:43, grade:"B", price:2999, color:"#8A5A3C", img:"img011.jpeg"},
     {ref:"011", name:"Nike Dunk Low - Cacao Wow", cat:"Sneakers", size:43, grade:"A", price:2999, color:"#8A5A3C", img:"img012.jpeg"},
     {ref:"012", name:"Puma Suede Platform", cat:"Sneakers", size:42, grade:"A", price:4499, color:"#8A5A3C", img:"img013.jpeg"},
-    {ref:"013", name:"Ellese Retro Runner", cat:"Sneakers", size:46, grade:"A", price:4999, color:"#8A5A3C", img:"img014.jpeg"}, 
+    {ref:"013", name:"Ellesse Retro Runner", cat:"Sneakers", size:46, grade:"A", price:4999, color:"#8A5A3C", img:"img014.jpeg"}, 
     {ref:"014", name:"Nike Air Max 720 - Odell Beckham Jr. X Louisiana State University Collab", cat:"Basketball", size:42.5, grade:"B", price:2999, color:"#8A5A3C", img:"img015.jpeg"}
   ]
 };
