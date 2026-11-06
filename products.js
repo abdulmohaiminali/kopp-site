@@ -10,7 +10,7 @@ window.KOPP = {
   products: [  
     {ref:"001", name:"Onitsuka Tiger Corsiar Whtite Green ",    cat:"Sneakers",   size:45, grade:"A+", price:5999, color:"#8A5A3C", img:"img02.jpeg"},
     {ref:"002", name:"Nike Iniator Running",   cat:"Running",    size:42, grade:"A",  price:4499, color:"#3A2A24", img:"img01.jpeg"},
-    {ref:"003", name:"Adidas Ultraboost 21",   cat:"Running",  size:43.5, grade:"A",  price:4999, color:"#D9D3C4", img:"img04.jpeg"},
+    {ref:"003", name:"Adidas Ultraboost 21",   cat:"Running",  size:43.5, grade:"A",  price:4999, color:"#D9D3C4", img:"img04.jpeg", sold:true},
     {ref:"004", name:"Adidas Busenitz Pro 'Halo Silver Gum",    cat:"Sneakers",     size:43.5, grade:"A",  price:4999, color:"#5B3A29", img:"img03.jpeg"},
     {ref:"005", name:"Asics Gel 1090 Piedmont Grey ",  cat:"Jogger",  size:43.5, grade:"B",  price:3900, color:"#2F3A63", img:"img05.jpeg"},
     {ref:"006", name:"New Balance 574 Legacy ",    cat:"Sneakers",   size:42.5, grade:"A+", price:5499, color:"#6B2E2A", img:"img06.jpeg"},
@@ -18,7 +18,7 @@ window.KOPP = {
     {ref:"009", name:"Adidas Lite Racer Adapt 4.0", cat:"Running", size:44, grade:"B", price:3499, color:"#8A5A3C", img:"img010.png"},
     {ref:"010", name:"Air Jordan True Flight GG", cat:"Sneakers", size:43, grade:"B", price:2999, color:"#8A5A3C", img:"img011.jpeg"},
     {ref:"011", name:"Nike Dunk Low - Cacao Wow", cat:"Sneakers", size:43, grade:"A", price:2999, color:"#8A5A3C", img:"img012.jpeg"},
-    {ref:"012", name:"Puma Suede Platform", cat:"Sneakers", size:42, grade:"A", price:4499, color:"#8A5A3C", img:"img013.jpeg"},
+    {ref:"012", name:"Puma Suede Platform", cat:"Sneakers", size:42, grade:"A", price:4499, color:"#8A5A3C", img:"img013.jpeg", sold:true},
     {ref:"013", name:"Ellesse Retro Runner", cat:"Sneakers", size:46, grade:"A", price:4999, color:"#8A5A3C", img:"img014.jpeg"}, 
     {ref:"014", name:"Nike Air Max 720 - Odell Beckham Jr. X Louisiana State University Collab", cat:"Basketball", size:42.5, grade:"B", price:2999, color:"#8A5A3C", img:"img015.jpeg"}
   ]
